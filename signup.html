@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Регистрирај се</title>
+	<meta name="keywords" content="html,css,lekcii">
+	<meta name="description" content="ova e strana za ucenje">
+	<meta name="author" content="Blagica Stojanovska">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="icon" type="image/png" href="https://cdn.brainster.co/assets/images/favicon_dark/favicon-32x32.png" sizes="32x32">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<nav class="nav navbar-inverse">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="navbar-header">
+						<button  type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="menu-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="http://codepreneurs.co/"><i class="glyphicon glyphicon-home"></i> Академија за програмирање</a></li>
+							<li><a href="https://brainster.co/"><i class="fa fa-users" aria-hidden="true"></i> Курсеви</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+
+	<div class="container">
+		<div class="row flex media-flex-height">
+			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 text-center animated pulse">
+				<h2 class="m-bottom l-spacing"><i class="fa fa-plus-circle" aria-hidden="true"></i> Регистрирај се</h2>
+				<form>
+                    <div class="row m-bottom-8">
+                        <div class="col-md-4 media-m-b">
+                            <p class="relative">
+                                <label for="ime">*</label>
+                                <input type="text" placeholder="Име" required="" id="ime">
+                            </p>
+                        </div>
+                        <div class="col-md-4 media-m-b">
+                            <input type="text" placeholder="Презиме">
+                        </div>
+                        <div class="col-xs-6 hidden-md hidden-lg">
+                        	<p class="relative f-size-vraboteni media-p-top">Колку вработени има во вашата компанија?</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                            <select name="vraboteni" class="media-vraboteni">
+                                 <option value="1-10">1-10 вработени</option>
+                                 <option value="10-50">10-50 вработени</option>
+                                 <option value="50-100">50-100 вработени</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row m-bottom-8">
+                        <div class="col-md-8">
+                            <p class="relative">
+                                <label for="mail">*</label>
+                                <input type="text" class="m-bt-small" placeholder="Е-маил" required="" id="mail">
+                            </p>
+                        </div>
+                        <div class="col-md-4 hidden-xs hidden-sm">
+                            <p class="relative f-size-vraboteni p-top-8">Колку вработени има во вашата компанија?
+                            <img src="arrow.png" alt="" width="60px" class="arrow"></p>
+                        </div>
+                    </div>
+                    <p class="relative">
+                        <label for="pass">*</label>
+                        <input type="password" class="m-bottom-8" placeholder="Лозинка" required="" id="pass">
+                    </p>
+                    <p class="relative">
+                        <label for="pass1">*</label>
+                        <input type="password" class="m-bottom-8" placeholder="Повтори лозинка" required="" id="pass1">
+                        <p class="mini-p text-right">Полињата без * се опционални .</p>
+                    </p>
+                    <button class="btn-success l-spacing media-m-b-16" type="submit"><i class="fa fa-check" aria-hidden="true"></i> РЕГИСТРИРАЈ СЕ</button>
+                </form>
+			</div>
+		</div>
+	</div>
+
+    <div class="container-fluid">
+        <div class="row bg-black">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="row p-10 c-footer">
+                    <div class="col-md-7 col-xs-10 col-xs-offset-1 col-sm-12">
+                        <p class="m-top-10 f-size-12 media-center"> &copy; 2018 | <span class="c-white">Brainster Codepreneurs Academy.</span> All rights reserved. | Design & Code: <span class="c-white">Blagica Stojanovska</span> </p>
+                    </div>
+                    <div class="col-md-1 col-md-offset-1 hidden-xs hidden-sm">
+                        <img src="logo_full_black.png" width="130px;" class="text-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
