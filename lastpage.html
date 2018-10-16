@@ -41,40 +41,40 @@
 	<div class="container">
 		<div class="row flex media-flex-height">
 			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 text-center animated pulse">
-				<img src="orange.png" alt="" class="img-orange">
-				<h5 class="text-muted">4.3</h5>
-				<h3 class="c-orange">Можеше и подобро.</h3>
-				<h4 class="text-muted m-bottom">Насмеј се, следната недела ќе биде подобра.</h4>
+				<img id="img-total" alt="" class="img-orange">
+				<h5 class="text-muted" id="total"></h5>
+				<h3 class="c-orange" id="message-total"></h3>
+				<h4 class="text-muted m-bottom" id="text-total"></h4>
 				<div class="flex-between m-bottom">
 					<div class="text-muted">
 						<h6 class="media-d-none">Работа</h6>
 						<i class="fa fa-heart fa-2x media-d-block" aria-hidden="true"></i>
-						<img src="red.png" class="img-red-small">
-						<h6>0.0</h6>
+						<img class="img-red-small" id="rez1">
+						<h6 class="1stval"></h6>
 					</div>
 					<div class="text-muted">
 						<h6 class="media-d-none">Тим</h6>
 						<i class="fa fa-users fa-2x media-d-block" aria-hidden="true"></i>
-						<img src="orange.png" class="img-orange-small">
-						<h6>5.0</h6>
+						<img class="img-orange-small" id="rez2">
+						<h6 class="2ndval"></h6>
 					</div>
 					<div class="text-muted">
 						<h6 class="media-d-none">Продуктивност</h6> 
 						<i class="fa fa-coffee fa-2x media-d-block" aria-hidden="true"></i>
-						<img src="lightgreen.png" class="img-lightgreen-small">
-						<h6>6.6</h6>
+						<img class="img-lightgreen-small" id="rez3">
+						<h6 class="3rdval"></h6>
 					</div>
 					<div class="text-muted">
 						<h6 class="media-d-none">Едукација</h6>
 						<i class="fa fa-graduation-cap fa-2x media-d-block" aria-hidden="true"></i>
-						<img src="green.png" class="img-green-small">
-						<h6>10.0</h6>
+						<img class="img-green-small" id="rez4">
+						<h6 class="4thval"></h6>
 					</div>
 					<div class="text-muted">
 						<h6 class="media-d-none">Стрес</h6>
 						<i class="fa fa-clock-o fa-2x media-d-block" aria-hidden="true"></i>
-						<img src="red.png" class="img-red-small">
-						<h6>0.0</h6>
+						<img class="img-red-small" id="rez5">
+						<h6 class="5thval"></h6>
 					</div>
 				</div>
 				<h6 class="text-left m-bottom">Ако сакаш да го измериш задоволството на вашите вработени, регистрирај се, а ние ќе ви ги испратиме опциите.</h6>
@@ -98,5 +98,66 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$(function(){
+			var firstLocal = localStorage.getItem("1stvalue")/10;
+			var secondLocal = localStorage.getItem("2ndvalue")/10
+			var thirdLocal = localStorage.getItem("3rdvalue")/10;
+			var fourthLocal = localStorage.getItem("4thvalue")/10;
+			var fifthLocal = localStorage.getItem("5thvalue")/10;
+			$(".1stval").text(firstLocal.toFixed(1));
+			$(".2ndval").text(secondLocal.toFixed(1));
+			$(".3rdval").text(thirdLocal.toFixed(1));
+			$(".4thval").text(fourthLocal.toFixed(1));
+			$(".5thval").text(fifthLocal.toFixed(1));
+
+			function calculate(value, elem){
+				if (value <= 0.9) {
+					elem.attr({
+						src:"red.png"
+					});
+					$("#message-total").text("Неделава беше ужасна..").css({"color":"#ec1c24"});
+					$("#text-total").text("Не очајувај, со поголем труд до поголем успех.");
+				}else if (value > 0.9 && value <= 3.9) {
+					elem.attr({
+						src:"orange.png"
+					});
+					$("#message-total").text("Можеше и подобро.").css({"color":"#ff7f27"});
+					$("#text-total").text("Насмеј се, следната недела ќе биде подобра.");
+				}else if (value > 3.9 && value <= 6.0) {
+					elem.attr({
+						src:"yellow.png"
+					});
+					$("#message-total").text("Уште една обична работна недела.").css({"color":"#fff200"});
+					$("#text-total").text("Работи напорно, биди љубезен и многу убави работи ќе се случат. Остани фокусиран.");
+				}else if (value > 6.0 && value <= 9.0) {
+					elem.attr({
+						src:"lightgreen.png"
+					});
+					$("#message-total").text("Забавно беше.").css({"color":"#c4ff0e"});
+					$("#text-total").text("Остани позитивен и насмеан, тоа е клучот на успехот.");
+				}else if (value > 9.0 && value <= 10.0) {
+					elem.attr({
+						src:"green.png"
+					});
+					$("#message-total").text("Wow, одлична недела.").css({"color":"#0ed145"});
+					$("#text-total").text("Само продолжи така.");
+					$("#text-total").text("Самодовербата и напорот секогаш ќе ти донесат успех. Само продолжи така.");
+				}
+			}	
+
+			calculate(firstLocal, $("#rez1"));
+			calculate(secondLocal, $("#rez2"));
+			calculate(thirdLocal, $("#rez3"));
+			calculate(fourthLocal, $("#rez4"));
+			calculate(fifthLocal, $("#rez5"));
+			
+			 var total = (firstLocal + secondLocal + thirdLocal + fourthLocal + fifthLocal)/5;
+			$("#total").text(total.toFixed(1));
+			calculate(total, $("#img-total"));
+
+		})
+	</script>
 </body>
 </html>
